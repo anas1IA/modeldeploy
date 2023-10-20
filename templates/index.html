@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <h1>Input Form for XGBoost Model</h1>
+    <form method="POST" action="/predict">
+        <label for="retained_earnings">Retained Earnings / Total Assets:</label>
+        <input type="text" id="retained_earnings" name="retained earnings / total assets"><br><br>
+
+        <label for="sales_total_assets">Sales / Total Assets:</label>
+        <input type="text" id="sales_total_assets" name="sales / total assets"><br><br>
+
+        <label for="liabilities_gross_profit"> (Total Liabilities * 365) / (Gross Profit + Depreciation):</label>
+        <input type="text" id="liabilities_gross_profit" name="(total liabilities * 365) / (gross profit + depreciation)"><br><br>
+
+        <label for="sales_ratio">Sales (n) / Sales (n-1):</label>
+        <input type="text" id="sales_ratio" name="sales (n) / sales (n-1)"><br><br>
+
+        <label for="operating_activities_total_assets">Profit on Operating Activities / Total Assets:</label>
+        <input type="text" id="operating_activities_total_assets" name="profit on operating activities / total assets"><br><br>
+
+        <label for="operating_activities_expenses">Profit on Operating Activities / Financial Expenses:</label>
+        <input type="text" id="operating_activities_expenses" name="profit on operating activities / financial expenses"><br><br>
+
+        <label for="total_sales_assets">Total Sales / Total Assets:</label>
+        <input type="text" id="total_sales_assets" name="total sales / total assets"><br><br>
+
+        <label for="current_assets_liabilities"> (Current Assets - Inventories) / Long-term Liabilities:</label>
+        <input type="text" id="current_assets_liabilities" name="(current assets - inventories) / long-term liabilities"><br><br>
+
+        <label for="profit_activities_sales">Profit on Operating Activities / Sales:</label>
+        <input type="text" id="profit_activities_sales" name="profit on operating activities / sales"><br><br>
+
+        <label for="receivables_inventory_days">Rotation Receivables + Inventory Turnover in Days:</label>
+        <input type="text" id="receivables_inventory_days" name="rotation receivables + inventory turnover in days"><br><br>
+
+        <label for="inventory_cost_sold"> (Inventory * 365) / Cost of Products Sold:</label>
+        <input type="text" id="inventory_cost_sold" name="(inventory * 365) / cost of products sold"><br><br>
+
+        <label for="working_capital">Working Capital:</label>
+        <input type="text" id="working_capital" name="working capital"><br><br>
+
+        <label for="total_costs_sales">Total Costs / Total Sales:</label>
+        <input type="text" id="total_costs_sales" name="total costs / total sales"><br><br>
+
+        <label for="liabilities_equity">Long-term Liabilities / Equity:</label>
+        <input type="text" id="liabilities_equity" name="long-term liabilities / equity"><br><br>
+
+        <label for="sales_inventory">Sales / Inventory:</label>
+        <input type="text" id="sales_inventory" name="sales / inventory"><br><br>
+
+        <label for="sales_fixed_assets">Sales / Fixed Assets:</label>
+        <input type="text" id="sales_fixed_assets" name="sales / fixed assets"><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
