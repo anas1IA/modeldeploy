@@ -2,7 +2,7 @@
 import pickle
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from xgboost import XGBClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 def load_and_preprocess_data(file_path):
     # Load your dataset from the specified file path
@@ -19,7 +19,7 @@ def load_and_preprocess_data(file_path):
 
 def train_xgboost_model(X_train, y_train):
     # Initialize and train your XGBoostClassifier model
-    xgb_classifier = XGBClassifier()
+    xgb_classifier = RandomForestClassifier()
     xgb_classifier.fit(X_train, y_train)
     
     return xgb_classifier
