@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Input Form</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Analysis-of-bank-debit-collections</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
 
 </head>
 <body>
-    <h1>Input Form for XGBoost Model</h1>
+ 
+<div class="container">
+    <h1 style="color: black;">Analysis of Corporate-Bankruptcy</h1>
     <form method="POST" action="/predict">
         <label for="retained_earnings">Retained Earnings / Total Assets:</label>
         <input type="text" id="retained_earnings" name="retained earnings / total assets"><br><br>
@@ -55,8 +57,10 @@
 
         <label for="sales_fixed_assets">Sales / Fixed Assets:</label>
         <input type="text" id="sales_fixed_assets" name="sales / fixed assets"><br><br>
-
-        <input type="submit" value="Predict">
+    <div class="centered-button">
+           <input type="submit" value="Predict">
+     </div>
     </form>
+</div>
 </body>
 </html>

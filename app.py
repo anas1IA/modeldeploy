@@ -5,8 +5,12 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__, static_folder='static')
 
-with open('model.pkl', 'rb') as model_file:
+with open('modele.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
+
+# Define phrases for predictions
+bankruptcy_phrase = "The company is at risk of bankruptcy."
+non_bankruptcy_phrase = "The company is not at risk of bankruptcy."
 
 @app.route("/", methods=["GET"])
 def home():
@@ -27,7 +31,7 @@ def predict():
                    '(inventory * 365) / cost of products sold', 'working capital',
                    'total costs / total sales', 'long-term liabilities / equity',
                    'sales / inventory', 'sales / fixed assets']
-    
+
     if request.method == 'POST':
         inputs = np.array([])
         for name in input_names:
@@ -42,14 +46,18 @@ def predict():
         if len(inputs) == len(input_names):
             # Make the prediction if all input values were successfully collected
             prediction = model.predict(df)
-            return f"Prediction: {prediction}"
+            # Use the phrases based on the prediction result
+            if prediction[0] == 1:
+                return bankruptcy_phrase
+            else:
+                return non_bankruptcy_phrase
         else:
             print("len inputs: ")
             print(len(inputs))
             print("\n")
             print("len input_names: ")
             print(len(input_names))
-            return f"Prediction: none"
+            return "Prediction: none"
 
 if __name__ == "__main__":
     app.run(debug=True)

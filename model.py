@@ -2,7 +2,7 @@
 import pickle
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier  # Import XGBoost
 
 def load_and_preprocess_data(file_path):
     # Load your dataset from the specified file path
@@ -19,7 +19,7 @@ def load_and_preprocess_data(file_path):
 
 def train_xgboost_model(X_train, y_train):
     # Initialize and train your XGBoostClassifier model
-    xgb_classifier = RandomForestClassifier()
+    xgb_classifier = XGBClassifier()  # Use XGBClassifier here
     xgb_classifier.fit(X_train, y_train)
     
     return xgb_classifier
@@ -34,10 +34,12 @@ if __name__ == "__main__":
     # Train the XGBoost model
     xgb_model = train_xgboost_model(X_train, y_train)
     
-    # Optionally, you can save the trained model to a file
-    # xgb_model.save_model('xgb_model.model')
+    # Optionally, you can save the trained model to a file using XGBoost's built-in save_model method
+    xgb_model.save_model('xgb_model.model')
+    
     predictions = xgb_model.predict(X_test)
-    xgb_model.score(X_test,y_test)
-    #save the model
-    file = open("model.pkl", 'wb')
-    pickle.dump(xgb_model, file)
+    accuracy = xgb_model.score(X_test, y_test)
+    
+    # Save the model using the pickle module
+    with open("modele.pkl", 'wb') as file:
+        pickle.dump(xgb_model, file)
