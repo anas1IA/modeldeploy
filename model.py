@@ -8,7 +8,7 @@ def load_and_preprocess_data(file_path):
     # Load your dataset from the specified file path
     data = pd.read_csv(file_path)
     
-    # Separate the features (X) and the target variable (y)
+    # Separate the features (X) and target variable (y)
     X = data.drop('bankruptcy status', axis=1)
     y = data['bankruptcy status']
     
@@ -34,8 +34,8 @@ if __name__ == "__main__":
     # Train the Random Forest model
     rf_model = train_random_forest_model(X_train, y_train)
     
-    # Optionally, you can save the trained model to a file using the pickle module
-    with open("modele.pkl", 'wb') as file:
+    # Save the model using the pickle module
+    with open("model.pkl", 'wb') as file:
         pickle.dump(rf_model, file)
     
     predictions = rf_model.predict(X_test)
