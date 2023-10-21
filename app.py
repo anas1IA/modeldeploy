@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__, static_folder='static')
 
-with open('model.pkl', 'rb') as model_file:
+with open('modele.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
 # Define phrases for predictions

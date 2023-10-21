@@ -35,7 +35,7 @@ if __name__ == "__main__":
     rf_model = train_random_forest_model(X_train, y_train)
     
     # Optionally, you can save the trained model to a file using the pickle module
-    with open("model.pkl", 'wb') as file:
+    with open("modele.pkl", 'wb') as file:
         pickle.dump(rf_model, file)
     
     predictions = rf_model.predict(X_test)
