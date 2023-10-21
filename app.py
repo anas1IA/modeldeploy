@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from flask import Flask, render_template, request
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
 
 with open('model.pkl', 'rb') as model_file:
     model = joblib.load(model_file)
