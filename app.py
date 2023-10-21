@@ -1,13 +1,11 @@
-import pickle
+import joblib
 import pandas as pd
 import numpy as np
 from flask import Flask, render_template, request
 
 app = Flask(__name__, static_folder='static')
-
 with open('model.pkl', 'rb') as model_file:
-    model = pickle.load(model_file)
-
+    model = joblib.load(model_file)
 # Define phrases for predictions
 bankruptcy_phrase = "The company is at risk of bankruptcy."
 non_bankruptcy_phrase = "The company is not at risk of bankruptcy."

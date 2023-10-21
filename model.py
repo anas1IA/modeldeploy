@@ -1,5 +1,5 @@
 # Import necessary libraries
-import pickle
+import joblib
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     
     # Save the model using pickle
     with open('model.pkl', 'wb') as model_file:
-        pickle.dump(rf_model, model_file)
+        joblib.dump(rf_model, model_file)
 
     # You can now load the model in your deployment environment without compatibility issues
 
