@@ -1,12 +1,11 @@
 import joblib
-import pickle
 import pandas as pd
 import numpy as np
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-with open('xgboost_model.pkl', 'rb') as model_file:
+with open('random_forest_model.pkl', 'rb') as model_file:
     model = joblib.load(model_file)
 
 # Define phrases for predictions
